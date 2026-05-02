@@ -1,0 +1,104 @@
+:root {
+    --crimson: #8B0000;
+    --gold: #D4AF37;
+    --black: #050505;
+    --paper: #F9F7F2;
+    --dark-accent: #1a1a1a;
+}
+
+body { 
+    background: var(--black); 
+    color: var(--paper); 
+    font-family: 'Georgia', serif; 
+    margin: 0; 
+    overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+.shrine-header { 
+    padding: 50px 20px; 
+    background: #000; 
+    border-bottom: 4px solid var(--gold); 
+    text-align: center;
+}
+
+.header-titles h1 { letter-spacing: 12px; margin: 0 0 10px 0; font-size: 2.8rem; }
+.header-titles p { letter-spacing: 4px; margin-bottom: 25px; color: var(--gold); }
+
+/* --- LAYOUT --- */
+.shrine-content { max-width: 1350px; margin: 0 auto; padding: 40px 20px; }
+.module-section { margin-bottom: 60px; }
+.gold-label { color: var(--gold); text-align: center; font-size: 0.9rem; letter-spacing: 6px; margin-bottom: 30px; display: block; }
+
+/* --- CHECKERS --- */
+.crimson-frame { background: var(--crimson); padding: 15px; border: 2px solid var(--gold); }
+.iframe-inner { background: #fff; height: 500px; }
+iframe { width: 100%; height: 100%; border: none; }
+
+/* --- BOOK GRID --- */
+.book-area-wrapper { display: flex; align-items: stretch; gap: 30px; }
+.side-photo-pillar { flex: 0 0 160px; border: 2px solid var(--gold); background-size: cover; background-position: center; }
+.left-pillar { background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=400'); }
+.right-pillar { background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=400'); }
+
+.book-vault { flex: 1; background: #0f0f0f; padding: 35px; border: 1px solid #222; }
+.shoji-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 25px; }
+
+.book-tile { 
+    background: var(--paper); 
+    border: 2px solid var(--gold); 
+    padding: 15px; 
+    text-align: center; 
+    color: var(--dark-accent); 
+    cursor: pointer; 
+    transition: 0.3s ease; 
+}
+.book-tile:hover { transform: translateY(-5px); box-shadow: 0 0 20px var(--gold); }
+
+/* --- CULINARY ARCHIVE --- */
+.recipe-vault-container { background: var(--paper); padding: 30px; max-height: 500px; overflow-y: auto; border: 1px solid var(--gold); }
+.scrollable-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; text-align: left; }
+
+.recipe-item { margin-bottom: 10px; padding: 12px; border-left: 4px solid var(--crimson); background: rgba(139, 0, 0, 0.05); transition: 0.2s; }
+.recipe-item:hover { background: rgba(139, 0, 0, 0.1); transform: translateX(5px); }
+.recipe-item a { color: var(--crimson); text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; }
+.recipe-item span { display: block; font-size: 0.7rem; color: #555; margin-top: 4px; font-style: italic; }
+
+/* --- SCRIBE'S DESK --- */
+.scribe-desk { margin: 20px auto; padding: 15px; background: #fff; border: 1px solid var(--gold); display: inline-block; }
+#scribeCanvas { border: 2px solid var(--crimson); cursor: crosshair; touch-action: none; background-image: radial-gradient(#eee 1px, transparent 1px); background-size: 20px 20px; }
+
+/* --- BUTTONS --- */
+.gold-rim-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 12px 24px; cursor: pointer; letter-spacing: 2px; font-family: serif; transition: 0.3s; margin: 5px; }
+.gold-rim-btn:hover { background: var(--gold); color: #000; }
+.checkout-btn { background: var(--crimson); color: var(--gold); border: none; width: 100%; }
+.dark-text { color: var(--crimson); border-color: var(--crimson); }
+
+.shrine-input { background: #fff; border: none; border-bottom: 2px solid var(--crimson); padding: 12px; margin: 10px 5px; width: 80%; text-align: center; }
+
+/* --- MUSIC --- */
+.music-controller { position: fixed; bottom: 20px; left: 20px; z-index: 2000; }
+#musicBtn { background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); font-size: 0.7rem; border-radius: 50px; }
+
+/* --- MODALS --- */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 1000; }
+.modal-inner { background: var(--paper); color: var(--dark-accent); margin: 2% auto; padding: 30px; width: 85%; max-width: 700px; border: 12px solid var(--crimson); outline: 2px solid var(--gold); position: relative; text-align: center; }
+.modal-inner.widest { max-width: 900px; }
+.close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: var(--crimson); }
+.modal-h2 { letter-spacing: 5px; text-transform: uppercase; }
+.gold-line { height: 3px; background: var(--gold); width: 60px; margin: 15px auto; }
+
+.resource-list { text-align: left; margin-bottom: 20px; }
+.resource-item { margin-bottom: 10px; padding: 8px; border-left: 4px solid var(--crimson); background: rgba(139, 0, 0, 0.05); }
+.resource-item a { color: var(--crimson); text-decoration: none; font-weight: bold; }
+.resource-item span { display: block; font-size: 0.75rem; color: #555; }
+
+/* Custom Scrollbar */
+.recipe-vault-container::-webkit-scrollbar { width: 6px; }
+.recipe-vault-container::-webkit-scrollbar-thumb { background: var(--crimson); }
+
+table { width: 100%; border-collapse: collapse; }
+th { border-bottom: 2px solid var(--gold); padding: 10px; text-align: left; color: var(--crimson); }
+td { border-bottom: 1px solid #ddd; padding: 10px; font-size: 0.9rem; }
+.return-btn { background: var(--crimson); color: white; border: none; padding: 5px 10px; cursor: pointer; }
+.table-scroll { overflow-x: auto; max-height: 400px; }

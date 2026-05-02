@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janson Library | Red & Gold Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="https://rpg.hamsterrepublic.com/wiki-images/d/db/Naruto-Hatachi-no-Kai.mp3" type="audio/mpeg">
+</audio>
+
+<header class="shrine-header">
+  <div class="header-titles">
+    <h1>JANSON LIBRARY</h1>
+    <p>COEUR D'ALENE ◈ PRIVATE ARCHIVE</p>
+    <div class="nav-controls">
+        <button class="gold-rim-btn" onclick="openStudy()">JAPANESE STUDY</button>
+        <button class="gold-rim-btn" onclick="adminLogin()">OWNER LOG</button>
+    </div>
+  </div>
+</header>
+
+<main class="shrine-content">
+  <!-- CHECKERS SECTION -->
+  <section class="module-section">
+    <h2 class="gold-label">CHECKERS LOUNGE</h2>
+    <div class="crimson-frame">
+      <div class="iframe-inner">
+        <iframe src="https://papergames.io/en/checkers"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK VAULT SECTION -->
+  <section class="module-section">
+    <h2 class="gold-label">THE 24 VOLUMES</h2>
+    <div class="book-area-wrapper">
+      <div class="side-photo-pillar left-pillar"></div>
+      <div class="book-vault">
+        <div id="bookGrid" class="shoji-grid"></div>
+      </div>
+      <div class="side-photo-pillar right-pillar"></div>
+    </div>
+  </section>
+
+  <!-- CULINARY ARCHIVE SECTION -->
+  <section class="module-section">
+    <h2 class="gold-label">THE CULINARY ARCHIVE</h2>
+    <div class="crimson-frame">
+        <div class="recipe-vault-container">
+            <div class="scrollable-list" id="recipeGrid">
+                <!-- 30 Recipes injected via JS -->
+            </div>
+        </div>
+    </div>
+  </section>
+</main>
+
+<!-- Mute/Unmute Toggle -->
+<div class="music-controller">
+    <button class="gold-rim-btn" onclick="toggleMusic()" id="musicBtn">MUSIC: OFF</button>
+</div>
+
+<!-- JAPANESE STUDY MODAL + SCRIBE'S DESK -->
+<div id="studyModal" class="modal-overlay">
+  <div class="modal-inner">
+    <span class="close-btn" onclick="closeStudy()">&times;</span>
+    <h2 class="modal-h2">日本語学習 ◈ RESOURCES</h2>
+    <div class="gold-line"></div>
+    
+    <div class="resource-list">
+      <div class="resource-item"><a href="https://jisho.org" target="_blank">JISHO.ORG</a><span>Dictionary for Kanji and vocabulary.</span></div>
+      <div class="resource-item"><a href="https://guidetojapanese.org/learn/grammar" target="_blank">TAE KIM'S GUIDE</a><span>Complete grammar resource.</span></div>
+      <div class="resource-item"><a href="https://ibispaint.com/" target="_blank">IBIS PAINT X</a><span>Useful for stroke order practice.</span></div>
+    </div>
+
+    <!-- Scribe's Desk Canvas -->
+    <div class="scribe-desk">
+        <h3 class="gold-label" style="color:var(--black); margin-bottom:10px; letter-spacing: 2px;">THE SCRIBE'S DESK</h3>
+        <canvas id="scribeCanvas" width="300" height="300"></canvas>
+        <br>
+        <button class="gold-rim-btn dark-text" onclick="clearCanvas()" style="margin-top:10px; font-size: 0.7rem;">CLEAR SLATE</button>
+    </div>
+    
+    <br>
+    <button class="gold-rim-btn dark-text" onclick="closeStudy()">CLOSE</button>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div id="bookModal" class="modal-overlay">
+  <div class="modal-inner">
+    <span class="close-btn" onclick="closeBook()">&times;</span>
+    <h2 id="modalTitle" class="modal-h2"></h2>
+    <div class="gold-line"></div>
+    <p id="modalDescription"></p>
+    <div id="checkoutForm">
+      <input type="text" id="borrowerName" placeholder="Full Name" class="shrine-input">
+      <input type="text" id="borrowerPhone" placeholder="Phone Number" class="shrine-input">
+      <br><br>
+      <button class="gold-rim-btn checkout-btn" onclick="processCheckout()">CONFIRM CHECKOUT</button>
+    </div>
+  </div>
+</div>
+
+<!-- LEDGER MODAL -->
+<div id="adminModal" class="modal-overlay">
+  <div class="modal-inner widest">
+    <span class="close-btn" onclick="closeAdmin()">&times;</span>
+    <h2 class="modal-h2 crimson-text">PRIVATE LEDGER</h2>
+    <div class="gold-line"></div>
+    <div id="ledgerTableContainer" class="table-scroll"></div>
+    <br>
+    <button class="gold-rim-btn dark-text" onclick="closeAdmin()">CLOSE</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
